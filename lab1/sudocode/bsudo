@@ -1,0 +1,195 @@
+// Kevin Carlisle
+// #82682616
+// CS 131
+// Lab 1
+// Part B 
+// Sudo Code
+
+
+
+
+//PROTOTYPE FOR THREAD ROUTINE-------------------------------------------------
+void search_by_thread( void* ptr);
+
+//PROTOTYPE FOR SEARCH FUNCTION-----------------------------------------------
+int search_for_string() //PARAMETERS (START_INDEX, END_INDEX, ARRAY_PTR, SEARCH_STR)
+
+//STRUCT TO STORE DATA TO PASS TO THREAD FUNCTION-------------------------------
+typedef struct thread_struct
+{
+	 //Int start index
+         //Int end index
+	 //Thread ID NUM (0 to N)
+	 //SLICE ID
+	 //ARRAY PTR
+
+} thread_data;
+
+
+//DECLARE MUTEX VARIABLE OF TYPE pthread_mutex_t
+//MUTEX
+
+//DECLARE GLOBAL INT INDEX TO INDEX ARRAY OF SLICE DATA
+	//INT_INDEX
+
+//MAIN----------------------------------------------------------------------------
+
+	//VARIABLE DECLARATIONS
+
+		 //Declare File Pointer
+	         //Declare String to store line
+	         //Declare Pointer to Array
+		 //Declare String to Search
+	         //Declare Temp Pointer
+		 //Declare Int for Number of Threads
+		 //Declare Int for Number of Slices
+		 //Initialize Int variable i to 0
+		 //Initialize Int variable j to 0
+		 //Initialize Int variable num_lines to 0
+	
+	//END OF VARIABLE DECLARATIONS
+
+	//OPEN INPUT FILE & ASSIGN FILE POINTER
+		//IF FILE POINTER ASSIGNMENT IS -1 OPEN FILE FAILED
+		//RAISE ERROR
+
+	//STORE FIRST LINE INTO INT NUMBER OF THREADS
+	//STORE SECOND LINE INTO INT NUMBER OF SLICES
+	//STORE THIRD LINE TO STRING TO SEARCH
+
+	//STARTING AT FOURTH LINE
+	//WHILE INPUT FILE IS NOT EMPTY GET LINE
+	//INCREMENT LINE COUNT
+	//LINE COUNT NOW HAS NUMBER OF LINES IN INPUT FILE (-3)
+	
+	//CLOSE FILE
+	
+	//Declare an Array of PThreads
+		//Size will be determined by NUMBER OF THREADS
+	//Declare an Array of Thread Data Structs
+		//Size will be determined by NUMBER OF SLICES
+
+	//Loop (# of Threads) Times
+		//Declare a Pthread for each item in the thread array
+
+	//Loop (# of Slices) Times
+		//Declare a THREAD DATA struct for each index in the SLICE DATA ARRAY
+
+	//ALLOCATE MEMORY FOR ARRAY
+		//Size Determined by NUMBER OF INPUTS and the size of each line
+		//Size of each line will be set to 16 chars
+
+	//Set Temp Pointer to Point to Beginning of Array
+
+	//OPEN INPUT FILE & REASSIGN FILE POINTER
+		//IF FILE POINTER -1 THEN RAISE ERROR
+
+	//USE WHILE LOOP TO STRCPY INTO ARRAY
+		//USING FGETS
+		//INCREMENT TEMP POINTER BY SIZE OF LINE (16 CHARS)
+
+
+
+	//DECLARE INT AND CALCULATE SIZE OF SLICES (NUM INPUTS / SLICES)
+
+	//LOOP (# of Slices) Times
+		//ASSIGN TO LOOP COUNT INDEX OF THREAD DATA ARRAY
+		//Assign Start Index, End Index, Slice Num
+		//Start and End Index are Incremented in each loop by SIZE OF SLICES
+
+	
+	
+	//INIT MUTEX ->  PTHREAD_MUTEX_INIT PASSING IN GLOBAL MUTEX AND NULL
+
+
+	//DECLARE AND INITIALIZE INT EXIT_FLAG to 0
+	
+	//USE WHILE LOOP TO ASSIGN SLICES TO THREADS AND CREATE 4 PTHREADS
+		//CALL THREAD ROUTINE FUNCTION WITH INDEX OF ARRAY OF THREAD STRUCTS
+		//If DOES NOT RETURN 0 -> RAISE ERROR
+		//INCREMENT INDEX ONLY WHEN CALL TO THREAD ROUTINE WAS SUCESSFUL
+		//IF GLOBAL INCREMENT IS EQUAL TO NUMBER OF SLICES
+			//SET EXIT_FLAG TO TRUE
+
+
+		
+	//USE WHILE LOOP TO WAIT FOR THREADS TO COMPLETE
+		//USING pthread_join()
+
+	//DESTROY MUTEX -> PTHREAD_MUTEX_DESTROY PASSING IN GLOBAL MUTEX
+
+	//CLOSE FILE
+
+	//FREE ARRAY PTR
+
+	//RETURN 0
+
+// END OF MAIN ---------------------------------------------------------------------
+
+
+
+// THREAD ROUTINE FUNCTION---------------------------------------------------------
+
+	//Has Single Parameter of type (void *)
+		// pointer
+
+	//DECLARE STRUCT POINTER AND ASSIGN TYPECAST (void *) parameter to (thread_data*)
+		// data = (thread_data *) pointer;
+
+	//DECLARE AND INITIALIZE INT VARIABLE TO 0
+		// i = 0;
+	//DECLARE AND INITIALIZE INT VARIABLE TO 0
+		// found = 0;
+
+	//CHECK IF POOL IS EXITING IF SO EXIT 
+
+	
+	//LOOP WHILE (TRUE)
+
+		//CALL SEARCH FUNCTION 
+		//PARAMETERS THREAD STRUCT FROM ARRAY THREAD STRUCT INDEX OF GLOBAL
+		
+		//LOCK MUTEX	
+			//INCREMENT GLOBAL INDEX
+		//UNLOCK MUTEX
+
+	//**TA SAID WE CAN ALSO ASSUME ONLY ONE MATCH PER SLICE**
+	//SEARCH FUNCTION RETURNS INT THAT SPECIFIES THE INDEX THAT MATCHED THE STRING
+	//OR -1 IF NO MATCH WAS FOUND
+	//SET i TO RETURN VALUE OF STR FUNCTION
+
+	//MUTEX LOCK (GLOBAL MUTEX VARIABLE)
+
+	//**TA SAID THAT WE NO LONGER WRITE TO FILE**
+	//WRITE TO STDOUT
+		//THREAD NUM, SLICE NUM, FOUND, i (VALUE RETURNED FROM SEARCH FUNCTION)
+
+	//MUTEX UNLOCK (GLOBAL MUTEX VARIABLE)
+
+	//PTHREAD EXIT -> 0
+
+// END OF THREAD ROUTINE FUNCTION------------------------------------------------------
+
+// SEARCH FOR STRING FUNCTION----------------------------------------------------------
+	//PARAMETERS (START_INDEX, END_INDEX, ARRAY_PTR, SEARCH_STR)
+
+	//SEARCHES THROUGH ARRAY INDEXES AND RETURNS INDEX OF FIRST INDEX THAT MATCHES
+	//SEARCH_STR OR -1 IF NO MATCH IS FOUND
+
+// END OF SEARCH FOR STRING FUNCTION---------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

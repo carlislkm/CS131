@@ -1,0 +1,5 @@
+thread 0, found no, slice -1, position -1
+thread 1, found no, slice -1, position -1
+thread 2, found no, slice -1, position -1
+thread 3, found yes, slice 3, position 95759
+26.407003
